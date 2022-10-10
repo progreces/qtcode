@@ -1,0 +1,21 @@
+#include "widget.h"
+#include "ui_widget.h"
+#include<Qnet
+Widget::Widget(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::Widget)
+{
+    ui->setupUi(this);
+}
+
+Widget::~Widget()
+{
+    delete ui;
+}
+
+
+void Widget::on_btnload_clicked()
+{
+    QUrl url = QUrl(ui->lineEdit->text());
+    ui->textEdit->loadResource(url);
+}
